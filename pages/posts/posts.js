@@ -21,8 +21,9 @@ Page({
   },
 
   onGotoDetail(event) {
+    const pid = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../post-detail/post-detail',
+      url: '../post-detail/post-detail?pid=' + pid,
     })
   },
 
