@@ -15,6 +15,20 @@ Page({
       url: '../logs/logs'
     })
   },
+  onTap() {
+    // wx.navigateTo({
+    //   url: '../posts/posts',
+    // })
+    wx.redirectTo({
+      url: '../posts/posts',
+    })
+  },
+  onViewTap() {
+    console.log('on view tap')
+  },
+  onTextTap() {
+    console.log('on text tap')
+  },
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData({

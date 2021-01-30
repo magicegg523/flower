@@ -11,13 +11,15 @@
     </swiper-item>
   </swiper>
 
-  <view class="post-container">
-    <view class="post-author-date">
-      <image class="post-author" src="/images/avatar.png"></image>
-      <text class="post-date">Nov 18 2020</text>
+  <block wx:for="{{posts}}" wx:key="postId">
+    <view bindtap="onGotoDetail" class="post-container">
+      <view class="post-author-date">
+        <image catchtap="onMaxImage" class="post-author" src="/images/avatar.png"></image>
+        <text class="post-date">Nov 18 2020</text>
+      </view>
+      <text class="post-title">{{item.title}}</text>
+      <image class="post-image" src="{{item.imgSrc}}"></image>
+      <text class="post-content">{{item.content}}</text>
     </view>
-    <text class="post-title">2020LPL夏季季后赛指南</text>
-    <image class="post-image" src="/images/9.webp"></image>
-    <text class="post-content">为解决在非通用型计算设备上使用小程序的诉求，我们推出了小程序硬件框架(Wechat Mini-Program Framework)，简称WMPF。WMPF 作为一个运行环境，能让硬件设备(非通用型计算设备)在无条件运行微信客户端的情况下运行微信小程序，目前已支持安卓设备。常见的通用型计算设备包括但不限于智能手机、笔记本电脑、台式电脑以及通用平板电脑等。</text>
-  </view>
+  </block>
 </view>
