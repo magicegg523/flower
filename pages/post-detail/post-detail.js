@@ -1,12 +1,15 @@
 // pages/post-detail/post-detail.js
 import { postList } from '../../data/data'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    postData: {}
+    postData: {},
+    isPlaying: false,
+    _mgr: null
   },
 
   /**
@@ -16,7 +19,58 @@ Page({
     const pid = options.pid
     const postData = postList[pid]
     this.setData({
-      postData
+      postData,
+      isPlaying: this.currentMusicIsPlaying()
+    })
+
+    const mgr = wx.getBackgroundAudioManager()
+    this.data._mgr = mgr
+    mgr.onPlay(this.onMusicStart)
+    mgr.onPause(this.onMusicStop)
+  },
+
+  async onCollect() {
+    // wx.showToast({
+    //   title: '收藏成功'
+    // })
+    const result = await wx.showModal({
+      title: '是否收藏'
+    })
+    console.log(result)
+  },
+
+  currentMusicIsPlaying() {
+    if (app.globalData.gIsPlayingMusic) {
+      if (app.globalData.gIsPlayindPostId === this.data.postData.postId) {
+        return true
+      }
+      return false
+    }
+    return false
+  },
+
+  onMusicStart() {
+    const mgr = this.data._mgr
+
+    mgr.src = this.data.postData.music.url
+    mgr.title = this.data.postData.music.title
+    mgr.coverImgUrl = this.data.postData.music.coverImg
+
+    app.globalData.gIsPlayingMusic = true
+    app.globalData.gIsPlayindPostId = this.data.postData.postId
+
+    this.setData({
+      isPlaying: true
+    })
+  },
+
+  onMusicStop() {
+    const mgr = this.data._mgr
+    mgr.stop()
+    app.globalData.gIsPlayingMusic = false
+    app.globalData.gIsPlayindPostId = -1
+    this.setData({
+      isPlaying: false
     })
   },
 

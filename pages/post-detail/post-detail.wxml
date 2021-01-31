@@ -1,9 +1,12 @@
 <view class="container">
   <image class="head-image" src="{{postData.imgSrc}}"></image>
+  <image wx:if="{{!isPlaying}}" bindtap="onMusicStart" class="audio" src="/images/music/music-start.png"></image>
+  <image wx:else bindtap="onMusicStop" class="audio" src="/images/music/music-stop.png"></image>
   <view class="author-date">
     <image class="avatar" src="/images/avatar.png"></image>
     <text class="author">{{postData.author}}</text>
     <text class="const-text">发表于{{postData.dateTime}}</text>
+    <l-icon bindtap="onCollect" name="add"/>
   </view>
   <text class="title">{{postData.title}}</text>
   <text class="detail">{{postData.detail}}</text>
