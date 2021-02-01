@@ -1,0 +1,5 @@
+<view class="container">
+  <image class="poster" src="/images/6.webp"></image>
+  <text class="title">盗梦空间</text>
+  <l-rate size="22" score="3.6" />
+</view>

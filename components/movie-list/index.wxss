@@ -1,0 +1,16 @@
+.container {
+  padding: 36rpx 28rpx;
+  background-color: #fff;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 200rpx;
+}
+
+.poster {
+  width: 200rpx;
+  height: 270rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}

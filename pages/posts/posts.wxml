@@ -10,16 +10,8 @@
       <image src="/images/6.webp"></image>
     </swiper-item>
   </swiper>
-
+  
   <block wx:for="{{posts}}" wx:key="postId">
-    <view data-id="{{item.postId}}" bindtap="onGotoDetail" class="post-container">
-      <view class="post-author-date">
-        <image catchtap="onMaxImage" class="post-author" src="/images/avatar.png"></image>
-        <text class="post-date">Nov 18 2020</text>
-      </view>
-      <text class="post-title">{{item.title}}</text>
-      <image class="post-image" src="{{item.imgSrc}}"></image>
-      <text class="post-content">{{item.content}}</text>
-    </view>
+    <post res="{{item}}" />
   </block>
 </view>

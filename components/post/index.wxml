@@ -1,0 +1,9 @@
+<view data-id="{{res.postId}}" bindtap="onGotoDetail" class="post-container">
+  <view class="post-author-date">
+    <image catchtap="onMaxImage" class="post-author" src="/images/avatar.png"></image>
+    <text class="post-date">Nov 18 2020</text>
+  </view>
+  <text class="post-title">{{res.title}}</text>
+  <image class="post-image" src="{{res.imgSrc}}"></image>
+  <text class="post-content">{{res.content}}</text>
+</view>
