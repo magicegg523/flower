@@ -12,6 +12,6 @@
   </swiper>
   
   <block wx:for="{{posts}}" wx:key="postId">
-    <post res="{{item}}" />
+    <post data-id="{{item.postId}}" bindtap="onGotoDetail" res="{{item}}" />
   </block>
 </view>

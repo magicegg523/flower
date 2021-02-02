@@ -9,7 +9,9 @@ Page({
   data: {
     inTheaters: [],
     comingSoon: [],
-    top250: []
+    top250: [],
+    searchResult: false,
+    searchData: []
   },
 
   /**
@@ -55,6 +57,10 @@ Page({
   },
 
   onConfirm(event) {
+    const that = this
+    this.setData({
+      searchResult: true
+    })
     wx.request({
       url: app.globalData.gBaseUrl + 'search',
       data: {
@@ -62,7 +68,16 @@ Page({
       },
       success(res) {
         console.log(res)
+        that.setData({
+          searchData: res.data.subjects
+        })
       }
+    })
+  },
+
+  onSearchCancel(event) {
+    this.setData({
+      searchResult: false
     })
   },
 
