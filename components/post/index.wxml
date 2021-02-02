@@ -1,4 +1,4 @@
-<view data-id="{{res.postId}}" bindtap="onTap" class="post-container">
+<view bindtap="onTap" class="post-container">
   <view class="post-author-date">
     <image catchtap="onMaxImage" class="post-author" src="/images/avatar.png"></image>
     <text class="post-date">Nov 18 2020</text>

@@ -19,7 +19,7 @@ Component({
    */
   methods: {
     onTap(event) {
-      const pid = event.currentTarget.dataset.id
+      const pid = this.properties.res.postId
       this.triggerEvent('posttap', {
         pid: pid
       })
