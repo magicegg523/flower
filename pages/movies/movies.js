@@ -1,19 +1,65 @@
 // pages/movies/movies.js
+
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    inTheaters: [],
+    comingSoon: [],
+    top250: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this
     wx.request({
-      url: 'http://t.talelin.com/v2/movie/in_theaters',
+      url: app.globalData.gBaseUrl + 'in_theaters?start=0&count=3',
+      success(res) {
+        console.log(res)
+        that.setData({
+          inTheaters: res.data.subjects
+        })
+      }
+    })
+    wx.request({
+      url: app.globalData.gBaseUrl + 'coming_soon?start=0&count=3',
+      success(res) {
+        console.log(res)
+        that.setData({
+          comingSoon: res.data.subjects
+        })
+      }
+    })
+    wx.request({
+      url: app.globalData.gBaseUrl + 'top250?start=0&count=3',
+      success(res) {
+        console.log(res)
+        that.setData({
+          top250: res.data.subjects
+        })
+      }
+    })
+  },
+
+  onGoToMore(event) {
+    console.log(event)
+    const type = event.currentTarget.dataset.type
+    wx.navigateTo({
+      url: '/pages/more-movie/more-movie?type=' + type
+    })
+  },
+
+  onConfirm(event) {
+    wx.request({
+      url: app.globalData.gBaseUrl + 'search',
+      data: {
+        q: event.detail.value
+      },
       success(res) {
         console.log(res)
       }

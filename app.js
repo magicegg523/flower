@@ -36,6 +36,7 @@ App({
   globalData: {
     userInfo: null,
     gIsPlayingMusic: false,
-    gIsPlayindPostId: -1
+    gIsPlayindPostId: -1,
+    gBaseUrl: "http://t.talelin.com/v2/movie/"
   }
 })
