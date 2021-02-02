@@ -1,6 +1,4 @@
- // pages/posts/posts.js
-import { postList } from '../../data/data'
-
+// pages/movie-detail/movie-detail.js
 Page({
 
   /**
@@ -14,22 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // const data = require('../../data/data')
-    this.setData({
-      posts: postList
-    })
-  },
 
-  onGotoDetail(event) {
-    console.log(event)
-    const pid = event.detail.pid
-    wx.navigateTo({
-      url: '../post-detail/post-detail?pid=' + pid,
-    })
-  },
-
-  onMaxImage() {
-    console.log('onMaxImage')
   },
 
   /**
@@ -71,7 +54,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
