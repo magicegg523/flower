@@ -6,7 +6,9 @@
     "pages/post-detail/post-detail",
     "pages/movies/movies",
     "pages/more-movie/more-movie",
-    "pages/movie-detail/movie-detail"
+    "pages/movie-detail/movie-detail",
+    "pages/map/map",
+    "pages/charts/charts"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +31,18 @@
         "pagePath": "pages/movies/movies",
         "iconPath": "/images/tab/movie.png",
         "selectedIconPath": "/images/tab/movie@highlight.png"
+      },
+      {
+        "text": "Map",
+        "pagePath": "pages/map/map",
+        "iconPath": "/images/tab/my.png",
+        "selectedIconPath": "/images/tab/my@highlight.png"
+      },
+      {
+        "text": "Charts",
+        "pagePath": "pages/charts/charts",
+        "iconPath": "/images/tab/my.png",
+        "selectedIconPath": "/images/tab/my@highlight.png"
       }
     ]
   },
